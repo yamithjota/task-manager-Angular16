@@ -1,0 +1,66 @@
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Task Manager</h1>
+        <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    
+            <div class="mb-4">
+                <label for="taskName" class="form-label">Nombre de la tarea</label>
+                <input type="text" id="taskName" class="form-control" formControlName="name">
+                <div *ngIf="taskForm.get('name')?.invalid && taskForm.get('name')?.touched" class="text-danger">
+                    El nombre de la tarea es requerido (mínimo 5 caracteres)
+                </div>
+            </div>
+    
+            <div class="mb-4">
+                <label for="deadline" class="form-label">Fecha límite</label>
+                <input type="date" id="deadline" class="form-control input-date" formControlName="deadline">
+                <div *ngIf="taskForm.get('deadline')?.invalid && taskForm.get('deadline')?.touched" class="text-danger">
+                    Fecha límite es requerida
+                </div>
+            </div>
+            
+            
+            
+    
+            <h4 class="mb-3">Asignar persona</h4>
+            <div formArrayName="people">
+                <div *ngFor="let person of people.controls; let i = index" 
+                     [formGroupName]="i" class="mb-4 border p-3 rounded" style="box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <label for="personName" class="form-label">Nombre de la persona</label>
+                    <input type="text" id="personName" style="width: 80%;" class="form-control" formControlName="name">
+                    <div *ngIf="person.get('name')?.invalid && person.get('name')?.touched" class="text-danger">
+                        El nombre de la persona es requerido (mínimo 5 caracteres, debe ser único)
+                    </div>
+    
+                    <label for="age" class="form-label" style="width: 100%;">Edad</label>
+                    <input type="number" id="age" class="form-control input-eage" formControlName="age">
+                    <div *ngIf="person.get('age')?.invalid && person.get('age')?.touched" class="text-danger">
+                        La edad debe ser mayor de 18 años.
+                    </div>
+    
+                    <div formArrayName="skills" class="mb-3">
+                        <label for="skills" class="form-label">Habilidades</label>
+                        <div *ngFor="let skill of getSkills(i).controls; let j = index" class="input-group mb-2">
+                            <input type="text" class="form-control input-skills" [formControlName]="j">
+                            <button type="button" class="btn btn-delete-skill" (click)="removeSkill(i, j)">Eliminar Habilidad</button>
+                        </div>
+                        <button type="button" class="btn btn-warning" (click)="addSkill(i)">Agregar Habilidad</button>
+                    </div>
+    
+                    <button type="button" class="btn btn-delete-person mt-3" (click)="removePerson(i)">Eliminar persona</button>
+                </div>
+            </div>
+    
+            <button type="button" class="btn btn-success mt-3" (click)="addPerson()">Agregar persona</button>
+            <div class="button-container">
+                <!-- Botón de Crear Tarea -->
+                <button type="submit" class="btn btn-primary create-task-button mt-3">Crear Tarea</button>
+            </div>
+        </form>
+    
+        <div class="text-center mt-3">
+            <a href="/task-list">Ver lista de tareas</a>
+        </div>
+    </div>
+
+
+<router-outlet></router-outlet>

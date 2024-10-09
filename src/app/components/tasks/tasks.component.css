@@ -1,0 +1,129 @@
+.container {
+    position: relative; /* Necesario para el posicionamiento absoluto del botón */
+    max-width: 100%;
+    padding: 0 15px; /* Asegura que haya espacio a los lados */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Ajusta los valores según tu preferencia */
+    border-radius: 8px; /* Opcional: para bordes redondeados */
+    padding: 20px; /* Opcional: espacio interior para que no se vea tan pegado */
+    background-color: #ffffff; /* Color de fondo del contenedor */
+}
+
+.input-date, .input-skills, .input-eage {
+    width: 20%;
+    /* Establece el ancho al 30% */
+    min-width: 150px;
+    /* Establece un ancho mínimo si lo deseas */
+    max-width: 300px;
+    /* Establece un ancho máximo si es necesario */
+    display: inline-block;
+}
+.input-date{
+    margin-left: 5px;
+}
+
+a{
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    color: rgb(51, 49, 49);
+}
+
+
+/* Botones colore */
+
+.btn-success {
+    margin-right: 5px;
+    /* Separar el botón de "Agregar persona" del siguiente botón */
+}
+/* Botón de agregar persona */
+.btn-primary {
+    background-color: #007bff; /* Color de fondo del botón primario */
+    color: #ffffff; /* Color de texto del botón primario */
+    border: none; /* Sin borde */
+  }
+  
+  .btn-secondary {
+    background-color: #28a745; /* Color de fondo del botón secundario */
+    color: #ffffff; /* Color de texto del botón secundario */
+    border: none; /* Sin borde */
+  }
+  
+/* Botón para eliminar persona */
+.btn-delete-person {
+    background-color: #dc3545;  /* Color de fondo para el botón de eliminar persona */
+    color: #ffffff; /* Color de texto para el botón de eliminar persona */
+    border: none; /* Sin borde */
+  }
+  .btn-delete-skill {
+    background-color: #ff9c07; /* Color de fondo para el botón de eliminar habilidad */
+    color: #ffffff; /* Color de texto para el botón de eliminar habilidad */
+    border: none; /* Sin borde */
+  }
+  
+  .btn-warning { /* Cambia el color de fondo del botón de advertencia (Agregar Habilidad) */
+    background-color: #17a2b8; /* Color de fondo del botón de habilidad */
+    color: #ffffff; /* Color de texto del botón de habilidad */
+    border: none; /* Sin borde */
+  }
+
+  .button-container {
+    display: flex; /* Usar flexbox para alinear el contenido */
+    justify-content: flex-end; /* Alinear el contenido a la derecha */
+    margin-top: 20px; /* Espacio superior entre el formulario y los botones */
+  }
+  
+  
+  /* Efecto hover para los botones */
+  .btn-primary:hover,
+  .btn-secondary:hover,
+  .btn-delete-skill:hover,
+  .btn-delete-person,
+  .btn-warning:hover {
+    opacity: 0.8; /* Efecto de opacidad en hover */
+  }
+
+
+/* Para pantallas pequeñas (menos de 500px) */
+@media (max-width: 499px) {
+    .container {
+        width: 95%;
+        /* Ocupa el 100% en pantallas pequeñas */
+        margin-bottom: 30px;
+        /* Espacio en la parte inferior de la pantalla */
+    }
+}
+
+/* Para pantallas medianas (500px a 768px) */
+@media (min-width: 500px) and (max-width: 768px) {
+    .container {
+        width: 75%;
+        /* Ocupa el 75% en pantallas medianas */
+        margin: 0 auto;
+        /* Centrar el contenedor */
+        margin-bottom: 30px;
+        /* Espacio en la parte inferior de la pantalla */
+    }
+}
+
+/* Para pantallas grandes (768px a 992px) */
+@media (min-width: 769px) and (max-width: 992px) {
+    .container {
+        width: 60%;
+        /* Ocupa el 60% en pantallas grandes */
+        margin: 0 auto;
+        /* Centrar el contenedor */
+        margin-bottom: 30px;
+        /* Espacio en la parte inferior de la pantalla */
+    }
+}
+
+/* Para pantallas extra grandes (más de 992px) */
+@media (min-width: 993px) {
+    .container {
+        width: 40%;
+        /* Ancho fijo del 50% */
+        margin: 0 auto;
+        /* Centrar el contenedor */
+        margin-bottom: 30px;
+        /* Espacio en la parte inferior de la pantalla */
+    }
+}
